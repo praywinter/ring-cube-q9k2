@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#edf0f4">
+  <meta name="description" content="手指沿圆环滑动，实时转动三维魔方。">
+  <title>圆环魔方</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="game">
+    <header class="masthead">
+      <div class="identity">
+        <div class="eyebrow">益智小游戏 <span></span> RING CUBE</div>
+        <h1>圆环魔方</h1>
+        <p>按住一条圆环沿弧线滑动，带动魔方转层。</p>
+      </div>
+      <div class="score">
+        <span id="status" role="status" data-solved="true">已还原</span>
+        <span>步数 <strong id="steps">00</strong></span>
+      </div>
+    </header>
+
+    <div class="boards">
+      <section class="panel">
+        <h2><span>01</span> 圆环控制</h2>
+        <canvas id="rings" width="432" height="350" aria-label="圆环控制区，按住轨道沿圆弧滑动"></canvas>
+        <p id="ring-tip" class="caption">松手后自动对齐到 90° 刻度</p>
+      </section>
+      <section class="panel cube-panel">
+        <h2><span>02</span> 三维魔方</h2>
+        <canvas id="cube" width="432" height="350" aria-label="随圆环同步转动的三维魔方"></canvas>
+        <p class="caption">打乱后，把六面恢复成单色</p>
+      </section>
+    </div>
+
+    <div class="actions" aria-label="游戏操作">
+      <button class="primary" id="shuffle" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c1.6 0 3-1.4 4.3-3.6m3.4-4.8C15 7.4 16.4 6 18 6h3m-4-4 4 4-4 4"/></svg>
+        打乱
+      </button>
+      <button id="undo" type="button" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 3 11l6 6M3 11h11a6 6 0 0 1 6 6v2"/></svg>
+        撤销
+      </button>
+      <button id="reset" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5v6h6m-5.5 0a8.5 8.5 0 1 1 .8 6"/></svg>
+        复原
+      </button>
+    </div>
+    <noscript>请开启浏览器的 JavaScript 后再玩。</noscript>
+  </main>
+  <script type="module" src="./main.mjs"></script>
+</body>
+</html>
+
